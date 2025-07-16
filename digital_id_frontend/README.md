@@ -13,6 +13,28 @@ This project provides a minimal React template with a clean, modern UI and minim
 
 In the project directory, you can run:
 
+### Environment Configuration
+
+#### Connecting to Backend API
+
+To connect to the Digital ID backend, set the following environment variable (in a `.env` file or your shell):
+
+```
+REACT_APP_API_URL=http://localhost:8000/api
+```
+
+- If unset, API requests default to `/api`, which proxies to the same host/port as the frontend.
+- For local frontend + backend development, set `REACT_APP_API_URL` to wherever the backend is running (e.g., Docker, cloud, etc).
+
+Your backend FastAPI server (see backend README) should be running at the above endpoint.
+
+**Examples of .env:**
+```
+REACT_APP_API_URL=http://localhost:8000/api
+```
+
+The frontend sends requests like `/holders`, `/unique-numbers` etc., to `${REACT_APP_API_URL}/holders`, etc.
+
 ### `npm start`
 
 Runs the app in development mode.\
